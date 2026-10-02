@@ -36,7 +36,7 @@ def novo_usuario(request):
             })
         User.objects.create_user(username=username,password=password)  
         return redirect('login')
-    return render(request, "novo-usuaqrio.html")  
+    return render(request, "novo-usuario.html")  
 
 def logout(request):
     auth_logout(request)
