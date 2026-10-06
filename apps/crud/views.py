@@ -27,4 +27,4 @@ def novo_paciente(request):
 
 @login_required
 def novo_paciente_sucesso(request):
-    return render(request, "novo-pacientesucesso.html")
+    return render(request, "novo-paciente-sucesso.html")
