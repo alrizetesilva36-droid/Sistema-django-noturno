@@ -7,7 +7,7 @@
 </h1>
 <hr>
 {% if error %}<p>{{error}}</p>{% endif%}
-<form action="" method="POST">
+<form action="{% url 'novo_paciente' %}" method="POST">
     {% csrf_token %}
     <div class="row">
         <div class="col-12 com-md-8 col-lg-6 mb-3">
@@ -21,7 +21,6 @@
             <input type="cpf" class="form-control" name="cpf" required>
         </div>
     </div>
-
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4 mb-3">
             <label for="email" class="form-label">Email</label>
