@@ -1,36 +1,36 @@
 {% extends 'base-crud.html' %}
-{% block title %}Novo Paciente{% endblock %}
+{% block title %}Alterar dados do Paciente{% endblock %}
 {% load static %}
 {% block content %}
 <h1 class="mt-5">
-    Cadastrar Novo Paciente
+    Alterar dados do Paciente
 </h1>
 <hr>
 {% if error %}<p>{{error}}</p>{% endif%}
-<form action="{% url 'novo_paciente' %}" method="POST">
+<form action="{% url 'alterar_paciente' paciente.codigo_paciente %}" method="POST">
     {% csrf_token %}
     <div class="row">
         <div class="col-12 com-md-8 col-lg-6 mb-3">
             <label for="paciente" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="nome" name="nome" required>
+            <input type="text" class="form-control" id="nome"  name="nome" value="{{ paciente.nome}}" required>
         </div>
     </div>
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4 mb-3">
             <label for="cpf" class="form-label">cpf</label>
-            <input type="cpf" class="form-control" id="cpf" name="cpf" required>
+            <input type="cpf" class="form-control" id="cpf" name="cpf" value="{{ paciente.cpf }}" required>
         </div>
     </div>
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4 mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" required>
+            <input type="email" class="form-control" id="email" name="email" value="{{ paciente.email }}" required>
         </div>
     </div>
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4 mb-3">
             <label for="telefone" class="form-label">Telefone</label>
-            <input type="telefone" class="form-control" id="telefone" name="telefone" required>
+            <input type="telefone" class="form-control" name="telefone" required>
         </div>
     </div>
     <div class="row">
@@ -38,12 +38,12 @@
             <label for="data_nascimento" class="form-label">
                 Data de nascimento:
             </label>
-            <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" required>
+            <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" value="{{ paciente.data_nascimento| date:'Y-m-d' }}" required>
         </div>
     </div>
     <div class="row">
         <div class="mt-4">
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <button type="submit" class="btn btn-primary">Alterar</button>
         </div>
 </form>
 <script src="{% static 'js/script.js' %}"></script>
