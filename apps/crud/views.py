@@ -40,6 +40,5 @@ def alterar_paciente(request,codigo_paciente):
         paciente.telefone =request.POST.get('telefone')
         paciente.data_nascimento =request.POST.get('data_nascimento')
         paciente.save()
-
-        return redirect('index')
+        return redirect('inde')
     return render(request, "alterar_dados.html", {'paciente' :paciente})
