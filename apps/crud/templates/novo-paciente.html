@@ -1,56 +1,19 @@
 {% extends 'base-crud.html' %}
-{% block title %}Novo Paciente{% endblock %}
 {% load static %}
+{% block title %}Novo Paciente{% endblock %}
 {% block content %}
 <h1 class="mt-5">
     Cadastrar Novo Paciente
 </h1>
 <hr>
-{% if error %}<p>{{error}}</p>{% endif%}
+{% if error %}<p>{{ error }}</p>{% endif %}
 <form action="{% url 'novo_paciente' %}" method="POST">
     {% csrf_token %}
-    <div class="row">
-        <div class="col-12 com-md-8 col-lg-6 mb-3">
-            <label for="paciente" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="nome" name="nome" required>
-        </div>
+    {% include 'includes/form.html' %}
+    <div class="d-flex justify-content-start mt-5 mb-5">
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
     </div>
-    <div class="row">
-        <div class="col-12 col-md-6 col-lg-4 mb-3">
-            <label for="cpf" class="form-label">cpf</label>
-            <input type="cpf" class="form-control" id="cpf" name="cpf" required>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12 col-md-6 col-lg-4 mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" required>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12 col-md-6 col-lg-4 mb-3">
-            <label for="telefone" class="form-label">Telefone</label>
-            <input type="telefone" class="form-control" id="telefone" name="telefone" required>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12 col-md-6 col-lg-4 mb-3">
-            <label for="data_nascimento" class="form-label">
-                Data de nascimento:
-            </label>
-            <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" required>
-        </div>
-        <div class="col-12 mb-3">
-            <label for="sintomas" class="form-label">
-                Sintomas:
-            </label>
-            <textarea class="form-control" rows="3" name="sintomas" id="sintomas"></textarea>
-        </div>
-    </div>
-    <div class="row">
-        <div class="mt-4">
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
-        </div>
 </form>
+
 <script src="{% static 'js/script.js' %}"></script>
 {% endblock %}
